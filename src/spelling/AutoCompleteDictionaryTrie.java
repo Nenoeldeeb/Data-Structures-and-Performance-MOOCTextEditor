@@ -2,7 +2,7 @@ package spelling;
 
 import java.util.List;
 
-/**
+/*
  * An trie data structure that implements the Dictionary and the AutoComplete ADT
  *
  * @author You
@@ -18,9 +18,7 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	}
 
 
-	/**
-	 * Insert a word into the trie.
-	 * For the basic part of the assignment (part 2), you should convert the
+	/*For the basic part of the assignment (part 2), you should convert the
 	 * string to all lower case before you insert it.
 	 * <p>
 	 * This method adds a word by creating and linking the necessary trie nodes
@@ -31,10 +29,24 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	 * (for the 'w').
 	 *
 	 * @return true if the word was successfully added or false if it already exists
-	 * in the dictionary.
-	 */
+	 * in the dictionary.//	 * Insert a word into the trie.*/
+	@Override
 	public boolean addWord (String word) {
-		//TODO: Implement this method.
+		if (word != null && !word.isEmpty ()) {
+			word = word.toLowerCase ();
+			TrieNode curr = root;
+			TrieNode next = null;
+			for (char c : word.toCharArray ()) {
+				next = curr.insert (c);
+				if (next != null) curr = next;
+				else curr = curr.getChild (c);
+			}
+			if (next == null && curr.endsWord ()) return false;
+			curr.setText (word);
+			curr.setEndsWord (true);
+			size++;
+			return true;
+		}
 		return false;
 	}
 
@@ -43,8 +55,7 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	 * as the number of TrieNodes in the trie.
 	 */
 	public int size () {
-		//TODO: Implement this method
-		return 0;
+		return size;
 	}
 
 
@@ -54,7 +65,15 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	 */
 	@Override
 	public boolean isWord (String s) {
-		// TODO: Implement this method
+		if (s != null && !s.isEmpty ()) {
+			s = s.toLowerCase ();
+			TrieNode curr = root;
+			for (char c : s.toCharArray ()) {
+				curr = curr.getChild (c);
+				if (curr == null) return false;
+			}
+			return curr.endsWord ();
+		}
 		return false;
 	}
 
@@ -81,7 +100,6 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	 */
 	@Override
 	public List<String> predictCompletions (String prefix, int numCompletions) {
-		// TODO: Implement this method
 		// This method should implement the following algorithm:
 		// 1. Find the stem in the trie.  If the stem does not appear in the trie, return an
 		//    empty list

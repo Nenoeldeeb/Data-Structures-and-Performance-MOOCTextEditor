@@ -30,7 +30,7 @@ class TrieNode {
 		this.text = text;
 	}
 
-	/**
+	/*
 	 * Return the TrieNode that is the child when you follow the
 	 * link from the given Character
 	 *
@@ -42,7 +42,7 @@ class TrieNode {
 		return children.get (c);
 	}
 
-	/**
+	/*
 	 * Inserts this character at this node.
 	 * Returns the newly created node, if c wasn't already
 	 * in the trie.  If it was, it does not modify the trie
@@ -69,6 +69,10 @@ class TrieNode {
 		return text;
 	}
 
+	public void setText (String text) {
+		this.text = text;
+	}
+
 	/**
 	 * Set whether or not this node ends a word in the trie.
 	 */
@@ -83,7 +87,7 @@ class TrieNode {
 		return isWord;
 	}
 
-	/**
+	/*
 	 * Return the set of characters that have links from this node
 	 */
 	public Set<Character> getValidNextCharacters () {
