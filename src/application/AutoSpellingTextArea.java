@@ -26,6 +26,32 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 
 	private static final int NUM_COMPLETIONS = 6;
 	private static final int NUM_SUGGESTIONS = 6;
+
+	// track auto complete and spelling suggestion states
+	private boolean autoCompleteOn = false;
+	private boolean spellingOn = false;
+
+	// boolean to see if style needs update on plain text change
+	private boolean needUpdate = true;
+
+	// matches case of user typing for auto complete and ss
+	// turn off if handling caps
+	private boolean matchCase = true;
+
+	// indices which contain word, set by getWordAtIndex
+	private int startIndex;
+	private int endIndex;
+
+	// current autocomplete options
+	private List<String> options;
+
+	// popup to display/select entry
+	private ContextMenu entriesPopup;
+
+	private spelling.AutoComplete ac;
+	private spelling.Dictionary dic;
+	private spelling.SpellingSuggest ss;
+
 	// set up reflection for spelling suggest
 	private static Method mHit;
 	private static Method mGetCharacterIndex;
@@ -45,25 +71,6 @@ public class AutoSpellingTextArea extends StyledTextArea<Boolean> {
 		mHit.setAccessible (true);
 		mGetCharacterIndex.setAccessible (true);
 	}
-
-	// track auto complete and spelling suggestion states
-	private boolean autoCompleteOn = false;
-	private boolean spellingOn = false;
-	// boolean to see if style needs update on plain text change
-	private boolean needUpdate = true;
-	// matches case of user typing for auto complete and ss
-	// turn off if handling caps
-	private boolean matchCase = true;
-	// indices which contain word, set by getWordAtIndex
-	private int startIndex;
-	private int endIndex;
-	// current autocomplete options
-	private List<String> options;
-	// popup to display/select entry
-	private ContextMenu entriesPopup;
-	private spelling.AutoComplete ac;
-	private spelling.Dictionary dic;
-	private spelling.SpellingSuggest ss;
 
 	// end set up reflection
 

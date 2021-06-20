@@ -1,7 +1,7 @@
 
 
 .background{ 
-	-fx-background-color: #0ce71acc;
+	-fx-background-color: #8fe2e9;
 }
 
 
@@ -23,6 +23,5 @@
 .myDialog:header *.header-panel *.label{
     -fx-font-size: 30 px;
     -fx-font-style: italic;
-    -fx-text-fill: #fafafa;
+    -fx-text-fill: #FAFAFA;
 }
-

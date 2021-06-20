@@ -9,9 +9,11 @@ import java.io.*;
 
 public class LoadFileDialogController {
 
-	private static File lastFile = null;
 	private Stage dialogStage;
 	private String fileString = "";
+
+	private static File lastFile = null;
+
 	@FXML
 	private TextField pathField;
 

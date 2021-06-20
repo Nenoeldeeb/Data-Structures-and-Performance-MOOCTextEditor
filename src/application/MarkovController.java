@@ -1,5 +1,6 @@
 package application;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -17,6 +18,7 @@ public class MarkovController {
 
 	@FXML
 	private TextArea resultBox;
+
 
 	/**
 	 * Checks if string is integer
@@ -97,4 +99,6 @@ public class MarkovController {
 				|| (Integer.parseInt (numString) <= 0));
 	}
 
+	public void handleOk (ActionEvent actionEvent) {
+	}
 }

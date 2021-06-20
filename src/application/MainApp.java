@@ -25,6 +25,7 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 
+
 	// MAIN
 	public static void main (String[] args) {
 		launch (args);

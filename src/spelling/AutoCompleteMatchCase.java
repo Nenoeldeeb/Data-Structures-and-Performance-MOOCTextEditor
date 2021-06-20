@@ -9,13 +9,13 @@ import java.util.Queue;
  *
  * @author You
  */
-public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
+public class AutoCompleteMatchCase implements Dictionary, AutoComplete {
 
 	private TrieNode root;
 	private int size;
 
 
-	public AutoCompleteDictionaryTrie () {
+	public AutoCompleteMatchCase () {
 		root = new TrieNode ();
 	}
 
@@ -35,7 +35,6 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	@Override
 	public boolean addWord (String word) {
 		if (word != null && !word.isEmpty ()) {
-			word = word.toLowerCase ();
 			TrieNode curr = root;
 			TrieNode next = null;
 			for (char c : word.toCharArray ()) {
@@ -68,7 +67,6 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 	@Override
 	public boolean isWord (String s) {
 		if (s != null && !s.isEmpty ()) {
-			s = s.toLowerCase ();
 			TrieNode curr = root;
 			for (char c : s.toCharArray ()) {
 				curr = curr.getChild (c);
@@ -105,7 +103,6 @@ public class AutoCompleteDictionaryTrie implements Dictionary, AutoComplete {
 		// This method should implement the following algorithm:
 		// 1. Find the stem in the trie.  If the stem does not appear in the trie, return an
 		//    empty list
-		prefix = prefix.toLowerCase ();
 		List<String> predictedWords = new LinkedList<> ();
 		TrieNode curr = root;
 		for (char c : prefix.toCharArray ()) {
