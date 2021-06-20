@@ -5,20 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="648e6b6a-d7d2-4327-873a-5c382d98b98a" name="New changelist" comment="My course project">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_fxmisc_richtext_richtextfx_0_6_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spelling/AutoCompleteMatchCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spelling/DictionaryHashSetMatchCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/richtextfx_fat_0_6_10.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JavaFxApplication.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFxApplication.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/richtextfx-fat-0.6.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/AutoSpellingTextArea.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/AutoSpellingTextArea.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/LoadFileDialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/LoadFileDialogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/application/MarkovController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/MarkovController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/EditDistanceLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/EditDistanceLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/LoadFileLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/LoadFileLayout.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/application/view/MarkovLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/MarkovLayout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application/view/MarkovOptionsLayout.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/application/view/MarkovOptionsLayout.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spelling/AutoCompleteDictionaryTrie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/AutoCompleteDictionaryTrie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spelling/NearbyWords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spelling/NearbyWords.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,6 +221,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NearbyWords" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spelling.NearbyWords" />
+      <module name="JavaFxApplication" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="spelling.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
@@ -287,6 +294,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainApp" />
+        <item itemvalue="Application.NearbyWords" />
         <item itemvalue="JUnit.AutoCompleteDictionaryTrieTester" />
       </list>
     </recent_temporary>
@@ -357,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624099557736</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="My course project">
+      <created>1624182654460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624182654460</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">

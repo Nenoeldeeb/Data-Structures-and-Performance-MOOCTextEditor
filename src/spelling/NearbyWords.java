@@ -26,7 +26,7 @@ public class NearbyWords implements SpellingSuggest {
 	}
 
 	public static void main (String[] args) {
-	   /* basic testing code to get started
+//	    basic testing code to get started
 	   String word = "i";
 	   // Pass NearbyWords any Dictionary implementation you prefer
 	   Dictionary d = new DictionaryHashSet();
@@ -40,7 +40,7 @@ public class NearbyWords implements SpellingSuggest {
 	   List<String> suggest = w.suggestions(word, 10);
 	   System.out.println("Spelling Suggestions for \""+word+"\" are:");
 	   System.out.println(suggest);
-	   */
+
 	}
 
 	/** Return the list of Strings that are one modification away
@@ -57,7 +57,7 @@ public class NearbyWords implements SpellingSuggest {
 		return retList;
 	}
 
-	/** Add to the currentList Strings that are one character mutation away
+	/* Add to the currentList Strings that are one character mutation away
 	 * from the input string.
 	 * @param s The original String
 	 * @param currentList is the list of words to append modified words
@@ -70,7 +70,7 @@ public class NearbyWords implements SpellingSuggest {
 			for (int charCode = (int) 'a'; charCode <= (int) 'z'; charCode++) {
 				// use StringBuffer for an easy interface to permuting the
 				// letters in the String
-				StringBuffer sb = new StringBuffer (s);
+				StringBuilder sb = new StringBuilder (s);
 				sb.setCharAt (index, (char) charCode);
 
 				// if the item isn't in the list, isn't the original string, and
@@ -84,7 +84,7 @@ public class NearbyWords implements SpellingSuggest {
 		}
 	}
 
-	/** Add to the currentList Strings that are one character insertion away
+	/* Add to the currentList Strings that are one character insertion away
 	 * from the input string.
 	 * @param s The original String
 	 * @param currentList is the list of words to append modified words
@@ -92,10 +92,17 @@ public class NearbyWords implements SpellingSuggest {
 	 * @return
 	 */
 	public void insertions (String s, List<String> currentList, boolean wordsOnly) {
-		// TODO: Implement this method
+		for (byte i = 0; i <= s.length (); i++) {
+			for (int chco = (int) 'a'; chco <= (int) 'z'; chco++) {
+				StringBuilder sb = new StringBuilder (s);
+				sb.insert (i, (char) chco);
+				if (!currentList.contains (sb.toString ()) && !s.equals (sb.toString ()) &&
+						(!wordsOnly || dict.isWord (sb.toString ()))) currentList.add (sb.toString ());
+			}
+		}
 	}
 
-	/** Add to the currentList Strings that are one character deletion away
+	/* Add to the currentList Strings that are one character deletion away
 	 * from the input string.
 	 * @param s The original String
 	 * @param currentList is the list of words to append modified words
@@ -103,10 +110,15 @@ public class NearbyWords implements SpellingSuggest {
 	 * @return
 	 */
 	public void deletions (String s, List<String> currentList, boolean wordsOnly) {
-		// TODO: Implement this method
+		for (byte i = 0; i < s.length (); i++) {
+			StringBuilder sb = new StringBuilder (s);
+			sb.deleteCharAt (i);
+			if (!currentList.contains (sb.toString ()) && !s.equals (sb.toString ()) &&
+					(!wordsOnly || dict.isWord (sb.toString ()))) currentList.add (sb.toString ());
+		}
 	}
 
-	/** Add to the currentList Strings that are one character deletion away
+	/* Add to the currentList Strings that are one character deletion away
 	 * from the input string.
 	 * @param word The misspelled word
 	 * @param numSuggestions is the maximum number of suggestions to return
@@ -125,8 +137,19 @@ public class NearbyWords implements SpellingSuggest {
 		// insert first node
 		queue.add (word);
 		visited.add (word);
-
-		// TODO: Implement the remainder of this method, see assignment for algorithm
+		short i = 0;
+		while (!queue.isEmpty () && retList.size () < numSuggestions && i < THRESHOLD) {
+			String curr = queue.remove (0);
+			List<String> suggested = distanceOne (curr, true);
+			for (String s : suggested) {
+				if (!visited.contains (s)) {
+					visited.add (s);
+					queue.add (s);
+				}
+				if (dict.isWord (s) && !retList.contains (s)) retList.add (s);
+			}
+			i++;
+		}
 
 		return retList;
 

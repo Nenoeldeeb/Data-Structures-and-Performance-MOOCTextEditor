@@ -4,9 +4,13 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import java.net.URL?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="200.0" prefWidth="300.0"
             xmlns="http://javafx.com/javafx/2.2" fx:controller="application.MarkovController">
   <!-- TODO Add Nodes -->
+  <stylesheets>
+    <URL value="@../application.css"/>
+  </stylesheets>
   <children>
     <Label layoutX="109.0" layoutY="42.0" text="Markov Option:"/>
     <Label layoutX="33.0" layoutY="100.0" prefWidth="164.9998779296875" text="Number of words to generate :"/>

@@ -4,8 +4,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 <VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" fillWidth="true" prefHeight="200.0" prefWidth="300.0"
       spacing="10.0" xmlns="http://javafx.com/javafx/2.2" fx:controller="application.EditDistanceDialogController">
+  <stylesheets>
+    <URL value="@../application.css"/>
+  </stylesheets>
   <children>
     <Label text="Enter two words...">
       <font>
